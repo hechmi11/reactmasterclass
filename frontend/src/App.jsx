@@ -1,28 +1,18 @@
+import { useState } from "react";
 import "./styles/App.css";
 import Login from "./pages/auth/Login";
 
 function App() {
-  const employes = [
-    {
-      id: 1,
-      nom: "Mohamed",
-      prenom: "Karim",
-      age: 35,
-      fonction: "developpeur mobile",
-    },
-    {
-      id: 2,
-      nom: "Nedra",
-      prenom: "Ben Mohamed",
-      age: 32,
-      fonction: "developpeur web",
-    },
-  ];
+  const [counter, setCounter] = useState(2);
 
   return (
     <>
-      <div>formation</div>
-      <Login employes={employes} />
+      <div style={{ marginLeft: "15px" }}>UseState techniques</div>
+      <div style={{ marginLeft: "15px" }}>{counter}</div>
+
+      <div style={{ marginLeft: "15px" }}>
+        <button>Incrementer</button>
+      </div>
     </>
   );
 }
