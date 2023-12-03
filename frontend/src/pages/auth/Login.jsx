@@ -62,7 +62,7 @@ const Login = () => (
       </Form.Item>
 
       <Form.Item style={{ textAlign: "right" }}>
-        <Button size={"middle"} type="primary" htmlType="submit">
+        <Button size={"small"} type="primary" htmlType="submit">
           Se connecter
         </Button>
       </Form.Item>

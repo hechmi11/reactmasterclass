@@ -11,7 +11,7 @@ import {
   SettingOutlined,
 } from "@ant-design/icons";
 
-import { Layout, Menu, Button, theme } from "antd";
+import { Layout, Menu, Button, theme, Tooltip } from "antd";
 
 import { Link, Outlet } from "react-router-dom";
 
@@ -43,7 +43,7 @@ const AdminLayout = () => {
   ];
 
   return (
-    <Layout style={{ height: "100vh" }}>
+    <Layout style={{ height: "100vh", padding: "0 0px" }}>
       <Sider
         style={{ backgroundColor: "white" }}
         trigger={null}
@@ -54,13 +54,15 @@ const AdminLayout = () => {
           className="demo-logo-vertical"
           style={{
             background: "white",
-            padding: "5px",
+            padding: "19px",
             display: "flex",
             justifyContent: "center",
-            gap: "5px",
+            gap: "15px",
           }}
         >
-          <SettingOutlined title="Administration" />
+          <Tooltip placement="rightBottom" title={"Administration"}>
+            <SettingOutlined />
+          </Tooltip>
           {collapsed ? "" : <span>Administration</span>}
         </div>
 
