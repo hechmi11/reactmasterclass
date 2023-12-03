@@ -1,13 +1,108 @@
-import React from "react";
-import Navbar from "../components/Navbar";
-import { Outlet } from "react-router-dom";
+import React, { useState } from "react";
+import {
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  UploadOutlined,
+  UserOutlined,
+  VideoCameraOutlined,
+  UserSwitchOutlined,
+  BarcodeOutlined,
+  BarChartOutlined,
+  SettingOutlined,
+} from "@ant-design/icons";
+
+import { Layout, Menu, Button, theme } from "antd";
+
+import { Link, Outlet } from "react-router-dom";
+
+const { Header, Sider, Content } = Layout;
+
 const AdminLayout = () => {
+  const [collapsed, setCollapsed] = useState(false);
+
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
+
+  const items = [
+    {
+      key: "1",
+      icon: <BarcodeOutlined />,
+      label: <Link to="/dashboard"> Products </Link>,
+    },
+    {
+      key: "2",
+      icon: <BarChartOutlined />,
+      label: <Link to="statistiques"> Statistiques </Link>,
+    },
+    {
+      key: "3",
+      icon: <UserSwitchOutlined />,
+      label: "Manage users",
+    },
+  ];
+
   return (
-    <div>
-      <Navbar />
-      <Outlet />
-    </div>
+    <Layout style={{ height: "100vh" }}>
+      <Sider
+        style={{ backgroundColor: "white" }}
+        trigger={null}
+        collapsible
+        collapsed={collapsed}
+      >
+        <div
+          className="demo-logo-vertical"
+          style={{
+            background: "white",
+            padding: "5px",
+            display: "flex",
+            justifyContent: "center",
+            gap: "5px",
+          }}
+        >
+          <SettingOutlined title="Administration" />
+          {collapsed ? "" : <span>Administration</span>}
+        </div>
+
+        <Menu
+          theme="light"
+          mode="inline"
+          defaultSelectedKeys={["1"]}
+          items={items}
+        />
+      </Sider>
+
+      <Layout>
+        <Header
+          style={{
+            padding: 0,
+            background: colorBgContainer,
+          }}
+        >
+          <Button
+            type="text"
+            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+            onClick={() => setCollapsed(!collapsed)}
+            style={{
+              fontSize: "16px",
+              width: 64,
+              height: 64,
+            }}
+          />
+        </Header>
+
+        <Content
+          style={{
+            margin: "24px 16px",
+            padding: 24,
+            minHeight: 280,
+            background: colorBgContainer,
+          }}
+        >
+          <Outlet />
+        </Content>
+      </Layout>
+    </Layout>
   );
 };
-
 export default AdminLayout;
