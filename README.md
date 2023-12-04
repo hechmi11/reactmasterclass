@@ -1,2 +1,3 @@
-# react-masterclass-g1
-REACT-js
+### Contact:
+
+[Chawki](https://www.facebook.com/will.tndevfactory/)
