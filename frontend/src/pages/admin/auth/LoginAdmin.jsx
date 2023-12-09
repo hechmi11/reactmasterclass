@@ -35,6 +35,12 @@ const LoginAdmin = () => (
       onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
+      <div style={{ padding: "10px 0" }}>
+        <h3 style={{ color: "#E3114E", textAlign: "center" }}>
+          Connexion Admin
+        </h3>
+      </div>
+
       <Form.Item
         label="Email"
         name="email"

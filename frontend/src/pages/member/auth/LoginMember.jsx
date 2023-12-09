@@ -35,6 +35,10 @@ const LoginMember = () => (
       onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
+      <div style={{ padding: "10px 0" }}>
+        <h3 style={{ textAlign: "center" }}>Connexion Membre</h3>
+      </div>
+
       <Form.Item
         label="Email"
         name="email"
