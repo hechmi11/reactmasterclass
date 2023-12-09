@@ -25,7 +25,7 @@ const formStyle = {
   padding: "10px",
 };
 
-const Login = () => (
+const LoginAdmin = () => (
   <div style={LoginPageStyle}>
     <Form
       name="basic"
@@ -69,4 +69,4 @@ const Login = () => (
     </Form>
   </div>
 );
-export default Login;
+export default LoginAdmin;
