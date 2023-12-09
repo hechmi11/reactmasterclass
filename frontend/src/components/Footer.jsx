@@ -19,7 +19,6 @@ const Footer = () => {
               style={{
                 color: "white",
                 padding: "10px",
-
                 display: "flex",
                 justifyContent: "center",
               }}
