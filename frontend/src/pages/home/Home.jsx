@@ -7,8 +7,15 @@ const HeroSectionS = styled.section`
   background-repeat: no-repeat;
   background-position: center;
   height: 650px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
   .formClass {
-    background-color: yellow;
+    background-color: rgba(255, 255, 2555, 0.85);
+    width: 370px;
+    height: 350px;
+    margin-left: 15px;
+    border-radius: 9px;
   }
 `;
 
