@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { MenuFoldOutlined } from "@ant-design/icons";
-
+import logo from "../assets/img/logo2.jpg";
 import { styled } from "styled-components";
+import { Button, Dropdown } from "antd";
 
 const NavbarS = styled.div`
   background-color: white;
@@ -17,21 +18,85 @@ const NavbarS = styled.div`
   z-index: 99;
   justify-content: space-between;
   align-items: center;
+  .brand {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    img {
+      height: 36px;
+    }
+  }
+  .espaceClient {
+    display: flex;
+    gap: 5px;
+  }
+  .text {
+    font-weight: 600;
+    font-size: 23px;
+    color: #444;
+  }
 `;
 
 const Navbar = () => {
+  const items = [
+    {
+      key: "1",
+      label: (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.antgroup.com"
+        >
+          Connexion
+        </a>
+      ),
+    },
+    {
+      key: "2",
+      label: (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.aliyun.com"
+        >
+          Inscription
+        </a>
+      ),
+    },
+    {
+      key: "3",
+      label: (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.luohanacademy.com"
+        >
+          Contacter Nous{" "}
+        </a>
+      ),
+    },
+  ];
   return (
     <NavbarS>
-      <div style={{ display: "flex", gap: "5px" }}>
-        <span>
-          <MenuFoldOutlined />
-        </span>
-        <span style={{ fontWeight: "700" }}>RentCar</span>
+      <div className="brand">
+        <img src={logo} alt="logo rentcar" />
+
+        <span className="text">RentCar</span>
       </div>
 
-      <div style={{ display: "flex", gap: "5px" }}>
-        <span>Inscription</span>
-        <span>Connexion</span>
+      <div className="espaceClient">
+        {/* <span>Inscription</span>
+        <span>Connexion</span> */}
+        <Dropdown
+          menu={{
+            items,
+          }}
+          placement="bottomLeft"
+          arrow
+        >
+          <Button>Espace Client</Button>
+        </Dropdown>
       </div>
     </NavbarS>
   );

@@ -12,9 +12,10 @@ const HeroSectionS = styled.section`
   align-items: center;
   .formClass {
     background-color: rgba(255, 255, 2555, 0.85);
-    width: 370px;
-    height: 350px;
-    margin-left: 15px;
+    width: 420px;
+    height: 400px;
+    margin-left: 150px;
+    margin-bottom: 100px;
     border-radius: 9px;
   }
 `;
