@@ -1,22 +1,28 @@
 import React from "react";
+import { styled } from "styled-components";
 
-const heroStyle = {
-  backgroundImage:
-    "url(https://images.pexels.com/photos/35967/mini-cooper-auto-model-vehicle.jpg)",
+const HeroSectionS = styled.section`
+  background-image: url(https://ik.imagekit.io/z90usd6mcrv7/https://www.tunisia-rent-car.com/images/clio.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 650px;
+  .formClass {
+    background-color: yellow;
+  }
+`;
 
-  backgroundSize: "cover",
-  backgroundRepeat: "no-reapeat",
-  backgroundPosition: "center",
-  height: "650px",
-};
-const servicesStyle = {};
+const ServiceSectionS = styled.section`
+  background-color: white;
+`;
 
 const Home = () => {
   return (
     <div>
-      <section style={heroStyle}></section>
-
-      <section style={servicesStyle}>hero service </section>
+      <HeroSectionS>
+        <div className="formClass">test</div>
+      </HeroSectionS>
+      <ServiceSectionS>hero service</ServiceSectionS>
     </div>
   );
 };

@@ -63,7 +63,7 @@ const MemberLayout = () => {
           <Tooltip placement="rightBottom" title={"Administration"}>
             <SettingOutlined />
           </Tooltip>
-          {collapsed ? "" : <span>Administration</span>}
+          {collapsed ? "" : <span>Espace Membre</span>}
         </div>
 
         <Menu
