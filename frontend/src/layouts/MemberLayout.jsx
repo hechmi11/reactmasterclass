@@ -9,16 +9,22 @@ import {
   BarcodeOutlined,
   BarChartOutlined,
   SettingOutlined,
+  LogoutOutlined,
 } from "@ant-design/icons";
-
 import { Layout, Menu, Button, theme, Tooltip } from "antd";
-
-import { Link, Outlet } from "react-router-dom";
-
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { logout, setUserDisconnected } from "../featuers/auth/authSlice";
+import { useDispatch } from "react-redux";
 const { Header, Sider, Content } = Layout;
 
 const MemberLayout = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
+  const [connectedUser, setConnectedUser] = useState(
+    localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : ""
+  );
 
   const {
     token: { colorBgContainer },
@@ -41,7 +47,21 @@ const MemberLayout = () => {
       label: "Manage users",
     },
   ];
-
+  const handleLogout = () => {
+    const email = "karim@rent-car.net";
+    dispatch(logout(email))
+      .then((res) => {
+        const { msg } = res.payload;
+        console.log(msg);
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        dispatch(setUserDisconnected());
+        navigate("/login-member");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <Layout style={{ height: "100vh", padding: "0 0px" }}>
       <Sider
@@ -81,16 +101,38 @@ const MemberLayout = () => {
             background: colorBgContainer,
           }}
         >
-          <Button
-            type="text"
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={() => setCollapsed(!collapsed)}
+          <div
             style={{
-              fontSize: "16px",
-              width: 64,
-              height: 64,
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
             }}
-          />
+          >
+            <Button
+              type="text"
+              icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+              onClick={() => setCollapsed(!collapsed)}
+              style={{
+                fontSize: "16px",
+                width: 64,
+                height: 64,
+              }}
+            />
+
+            <div>
+              <span style={{ marginRight: "10px" }}>
+                Bonjour, {connectedUser ? connectedUser.name : ""}
+              </span>
+              <LogoutOutlined
+                style={{
+                  fontSize: "16px",
+                  width: 64,
+                  height: 64,
+                }}
+                onClick={() => handleLogout()}
+              />
+            </div>
+          </div>
         </Header>
 
         <Content

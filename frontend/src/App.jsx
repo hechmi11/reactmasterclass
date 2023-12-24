@@ -14,10 +14,16 @@ import Statistiques from "./pages/admin/statistiques/Statistiques";
 
 // zone member prive
 import LoginMember from "./pages/member/auth/LoginMember"; // public
+import RegisterMember from "./pages/member/auth/RegisterMember"; // public
 import ProfileMember from "./pages/member/profile/Profile";
 
 // zone accueil home public
 import Home from "./pages/public/Home";
+import Prestations from "./pages/public/Prestations";
+import Services from "./pages/public/Services";
+import Apropos from "./pages/public/Apropos";
+// espace client
+import ContactUs from "./pages/public/ContactUs";
 
 function App() {
   return (
@@ -25,9 +31,14 @@ function App() {
       <Routes>
         <Route path="/" element={<HomeLayout />}>
           <Route index element={<Home />} />
+          <Route path="prestations" element={<Prestations />} />
+          <Route path="services" element={<Services />} />
+          <Route path="apropos" element={<Apropos />} />
+          <Route path="contact-us" element={<ContactUs />} />
         </Route>
 
         <Route path="/login-member" element={<LoginMember />} />
+        <Route path="/register-member" element={<RegisterMember />} />
         <Route path="/login-admin" element={<LoginAdmin />} />
 
         <Route path="/dashboard-member" element={<MemberLayout />}>

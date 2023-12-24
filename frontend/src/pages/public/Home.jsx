@@ -286,6 +286,7 @@ const Home = () => {
             ))}
           </Row>
         </div>
+
         <div className="conditions">
           <h3>Conditions generales</h3>
           <div className="conditionsText">
@@ -301,8 +302,11 @@ const Home = () => {
               l’aéroport Enfidha, l’aéroport de Monastir et l’aéroport
               International Djerba Midoun.
             </p>
+
+            <h2>Profitez de votre voiture à Tunis</h2>
+            <span> , Hammamet ou Djerba</span>
+
             <p>
-              <h2>Profitez de votre voiture à Tunis</h2>, Hammamet ou Djerba
               Tunisia Rent Car est votre partenaire de route, qui vous offre un
               service de location voiture Tunisie loin de tous les tracas
               imprévus qui peuvent survenir.
@@ -317,11 +321,14 @@ const Home = () => {
               du pays ou aussi pour vous aider lors de vos déplacements
               professionnels.
             </p>
+
+            <h2>Louez votre véhicule à un prix pas cher</h2>
             <p>
-              <h2>Louez votre véhicule à un prix pas cher</h2> Tunisia Rent Car
-              fait évoluer ses services d’une façon permanente. Nous offrons à
-              nos clients des véhicules neufs, bien entretenues avec zéro défaut
-              pour que vous n’ayez pas de surprises lors de vos déplacements.
+              {" "}
+              Tunisia Rent Car fait évoluer ses services d’une façon permanente.
+              Nous offrons à nos clients des véhicules neufs, bien entretenues
+              avec zéro défaut pour que vous n’ayez pas de surprises lors de vos
+              déplacements.
             </p>
             <p>
               En fournissant les meilleurs services de manière transparente,

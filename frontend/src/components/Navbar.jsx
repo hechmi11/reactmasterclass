@@ -1,9 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+
 import { MenuFoldOutlined } from "@ant-design/icons";
 import logo from "../assets/img/logo2.jpg";
 import { styled } from "styled-components";
 import { Button, Dropdown } from "antd";
+import { logout } from "../featuers/auth/authSlice";
+import { useDispatch } from "react-redux";
+import { useNavigate, Link } from "react-router-dom";
 
 const NavbarS = styled.div`
   background-color: white;
@@ -37,47 +40,53 @@ const NavbarS = styled.div`
   }
   .espaceClient {
     display: flex;
-    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    .menu {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+      .link {
+        font-size: 16px;
+        color: #444;
+        &:hover {
+          color: skyblue;
+        }
+      }
+    }
   }
 `;
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+
+  const handleLogout = () => {
+    const email = "karim@rent-car.net";
+    dispatch(logout(email))
+      .then((res) => {
+        console.log(res);
+        //  navigate('/login-member')
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   const items = [
     {
       key: "1",
-      label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.antgroup.com"
-        >
-          Inscription
-        </a>
-      ),
+      label: <Link to="/register-member">Inscription</Link>,
     },
     {
       key: "2",
-      label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.aliyun.com"
-        >
-          Connexion
-        </a>
-      ),
+      label: <Link to="/login-member">Connexion</Link>,
     },
     {
       key: "3",
-      label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.luohanacademy.com"
-        >
-          Contacter Nous
-        </a>
-      ),
+      label: <Link to="/contact-us">Contacter Nous</Link>,
     },
   ];
 
@@ -89,8 +98,20 @@ const Navbar = () => {
       </div>
 
       <div className="espaceClient">
-        {/* <span>Inscription</span>
-        <span>Connexion</span> */}
+        <div className="menu">
+          <Link to="/" className="link">
+            Accueil
+          </Link>
+          <Link to="/prestations" className="link">
+            Prestations
+          </Link>
+          <Link to="/services" className="link">
+            Services
+          </Link>
+          <Link to="/apropos" className="link">
+            A propos
+          </Link>
+        </div>
 
         <Dropdown
           menu={{

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Flex, Form, Input } from "antd";
-import { login, setUserConnected } from "../../../featuers/auth/authSlice";
+import { register, setUserConnected } from "../../../featuers/auth/authSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 const LoginPageStyle = {
@@ -20,16 +20,16 @@ const formStyle = {
   padding: "10px",
 };
 
-const LoginMember = () => {
+const RegisterMember = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = (values) => {
+  const handleRegister = (values) => {
     setLoading(true);
-    dispatch(login(values))
+    dispatch(register(values))
       .then((res) => {
-        const { id: _id, name, email, token } = res.payload.user;
+        const { id, name, email, token } = res.payload.user;
         const { message } = res.payload;
         console.log(message);
         console.log(token);
@@ -47,7 +47,7 @@ const LoginMember = () => {
 
   const onFinish = (values) => {
     console.log("Success:", values);
-    handleLogin(values);
+    handleRegister(values);
   };
 
   return (
@@ -60,8 +60,21 @@ const LoginMember = () => {
         autoComplete="off"
       >
         <div style={{ padding: "10px 0" }}>
-          <h3 style={{ textAlign: "center" }}>Connexion Membre</h3>
+          <h3 style={{ textAlign: "center" }}>Inscription Membre</h3>
         </div>
+
+        <Form.Item
+          label="Nom"
+          name="name"
+          rules={[
+            {
+              required: true,
+              message: "Veuillez inserez votre nom!",
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
 
         <Form.Item
           label="Email"
@@ -92,8 +105,8 @@ const LoginMember = () => {
         <Form.Item>
           <Flex justify="space-between" align="center">
             <div>
-              <Link to="/register-member" style={{ fontSize: "11px" }}>
-                Lien pour s'inscrire
+              <Link to="/login-member" style={{ fontSize: "11px" }}>
+                Lien pour se connecter
               </Link>
             </div>
 
@@ -103,7 +116,7 @@ const LoginMember = () => {
               htmlType="submit"
               loading={loading}
             >
-              Se connecter
+              S'inscrire
             </Button>
           </Flex>
         </Form.Item>
@@ -111,4 +124,4 @@ const LoginMember = () => {
     </div>
   );
 };
-export default LoginMember;
+export default RegisterMember;

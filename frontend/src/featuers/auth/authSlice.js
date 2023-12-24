@@ -18,16 +18,45 @@ export const login = createAsyncThunk("Auth/login", async (data, thunkAPI) => {
     console.log(error);
   }
 });
+export const register = createAsyncThunk(
+  "Auth/Register",
+  async (data, thunkAPI) => {
+    try {
+      let url = `/auth/register`;
+      const res = await http.post(url, data);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+export const logout = createAsyncThunk(
+  "Auth/Logout",
+  async (data, thunkAPI) => {
+    try {
+      let url = `/auth/logout`;
+      const res = await http.post(url, data);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
 
 const authSlice = createSlice({
   name: "Auth",
   initialState,
   reducers: {
-    setUserConnected: (state) => {
+    setUserConnected: (state, { payload }) => {
       state.connected = true;
+      state.token = payload.token;
+      state.user = JSON.stringify(payload);
     },
     setUserDisconnected: (state) => {
       state.connected = false;
+      state.token = "";
+      state.user = "";
     },
   },
 });

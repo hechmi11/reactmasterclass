@@ -11,7 +11,7 @@ const { Header, Sider, Content } = Layout;
 
 const HomeLayout = () => {
   return (
-    <Layout style={{ height: "100vh" }}>
+    <Layout style={{ height: "100vh", paddingTop: "4.1rem" }}>
       <Navbar />
       <Outlet />
       <Footer />
