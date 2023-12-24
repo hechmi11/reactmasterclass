@@ -14,10 +14,13 @@ const NavbarS = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  display: flex;
+
   z-index: 99;
+
+  display: flex;
   justify-content: space-between;
   align-items: center;
+
   .brand {
     display: flex;
     gap: 5px;
@@ -26,15 +29,15 @@ const NavbarS = styled.div`
     img {
       height: 36px;
     }
+    .text {
+      font-weight: 600;
+      font-size: 23px;
+      color: #444;
+    }
   }
   .espaceClient {
     display: flex;
     gap: 5px;
-  }
-  .text {
-    font-weight: 600;
-    font-size: 23px;
-    color: #444;
   }
 `;
 
@@ -48,7 +51,7 @@ const Navbar = () => {
           rel="noopener noreferrer"
           href="https://www.antgroup.com"
         >
-          Connexion
+          Inscription
         </a>
       ),
     },
@@ -60,7 +63,7 @@ const Navbar = () => {
           rel="noopener noreferrer"
           href="https://www.aliyun.com"
         >
-          Inscription
+          Connexion
         </a>
       ),
     },
@@ -72,30 +75,31 @@ const Navbar = () => {
           rel="noopener noreferrer"
           href="https://www.luohanacademy.com"
         >
-          Contacter Nous{" "}
+          Contacter Nous
         </a>
       ),
     },
   ];
+
   return (
     <NavbarS>
       <div className="brand">
         <img src={logo} alt="logo rentcar" />
-
-        <span className="text">RentCar</span>
+        <span className="text">Rental</span>
       </div>
 
       <div className="espaceClient">
         {/* <span>Inscription</span>
         <span>Connexion</span> */}
+
         <Dropdown
           menu={{
             items,
           }}
-          placement="bottomLeft"
+          placement="bottom"
           arrow
         >
-          <Button>Espace Client</Button>
+          <Button type="primary">Espace client</Button>
         </Dropdown>
       </div>
     </NavbarS>

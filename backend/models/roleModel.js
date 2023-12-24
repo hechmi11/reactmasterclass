@@ -1,17 +1,15 @@
 const mongoose = require("mongoose");
-
 const roleSchema = mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, "veuillez inserer le champs role"],
+      required: [true, "Veuillez inserer le champ role"],
     },
-    updeatedBy: {
+    updatedBy: {
       type: String,
       default: "admin",
     },
   },
-
   {
     timestamps: true,
   }

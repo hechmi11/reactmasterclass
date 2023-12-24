@@ -1,20 +1,18 @@
 const asyncHandler = require("express-async-handler");
-const role = require("../models/userModel");
+const role = require("../models/roleModel");
 
-// @[   GET   /api/auth/role , public,register method]
-const getRole = asyncHandler(async (req, res) => {
-  // const role = await role.find();
+// @[ GET, /api/roles/, private,  return all roles ]
+const getRoles = asyncHandler(async (req, res) => {
   const newRole = await role.create({
-    name: "admin",
+    name: "agent saisie",
   });
-
+  // const roles = await role.find();
   console.log(newRole);
+
   res.status(200).json({
-    role,
-    message: "getRole from roleControllers",
+    newRole,
+    message: "getRoles method from roleController",
   });
 });
 
-module.exports = {
-  getRole,
-};
+module.exports = { getRoles };

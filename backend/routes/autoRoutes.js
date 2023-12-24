@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const { getAuto } = require("../controllers/autoController");
+const { getAutos } = require("../controllers/autoController");
 
-router.get("/", getAuto);
+router.get("/", getAutos);
 
 module.exports = router;

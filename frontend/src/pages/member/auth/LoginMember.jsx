@@ -1,12 +1,7 @@
 import React from "react";
 import { Button, Checkbox, Form, Input } from "antd";
-
-const onFinish = (values) => {
-  console.log("Success:", values);
-};
-const onFinishFailed = (errorInfo) => {
-  console.log("Failed:", errorInfo);
-};
+import { login } from "../../../featuers/auth/authSlice";
+import { useDispatch } from "react-redux";
 
 const LoginPageStyle = {
   backgroundColor: "white",
@@ -25,52 +20,73 @@ const formStyle = {
   padding: "10px",
 };
 
-const LoginMember = () => (
-  <div style={LoginPageStyle}>
-    <Form
-      name="basic"
-      layout="vertical"
-      style={formStyle}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off"
-    >
-      <div style={{ padding: "10px 0" }}>
-        <h3 style={{ textAlign: "center" }}>Connexion Membre</h3>
-      </div>
+const LoginMember = () => {
+  const dispatch = useDispatch();
 
-      <Form.Item
-        label="Email"
-        name="email"
-        rules={[
-          {
-            required: true,
-            message: "Veuillez inserez votre email!",
-          },
-        ]}
+  const handleLogin = (values) => {
+    dispatch(login(values))
+      .then((res) => {
+        const { id: _id, name, email, token } = res.payload.user;
+        const { message } = res.payload;
+        console.log(message);
+        console.log(token);
+        localStorage.setItem("token", token);
+        localStorage.setItem("user", JSON.stringify(res.payload.user));
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const onFinish = (values) => {
+    console.log("Success:", values);
+    handleLogin(values);
+  };
+
+  return (
+    <div style={LoginPageStyle}>
+      <Form
+        name="basic"
+        layout="vertical"
+        style={formStyle}
+        onFinish={onFinish}
+        autoComplete="off"
       >
-        <Input />
-      </Form.Item>
+        <div style={{ padding: "10px 0" }}>
+          <h3 style={{ textAlign: "center" }}>Connexion Membre</h3>
+        </div>
 
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={[
-          {
-            required: true,
-            message: "Veuillez inserez votre mot de passe!",
-          },
-        ]}
-      >
-        <Input.Password />
-      </Form.Item>
+        <Form.Item
+          label="Email"
+          name="email"
+          rules={[
+            {
+              required: true,
+              message: "Veuillez inserez votre email!",
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
 
-      <Form.Item style={{ textAlign: "right" }}>
-        <Button size={"small"} type="primary" htmlType="submit">
-          Se connecter
-        </Button>
-      </Form.Item>
-    </Form>
-  </div>
-);
+        <Form.Item
+          label="Password"
+          name="password"
+          rules={[
+            {
+              required: true,
+              message: "Veuillez inserez votre mot de passe!",
+            },
+          ]}
+        >
+          <Input.Password />
+        </Form.Item>
+
+        <Form.Item style={{ textAlign: "right" }}>
+          <Button size={"small"} type="primary" htmlType="submit">
+            Se connecter
+          </Button>
+        </Form.Item>
+      </Form>
+    </div>
+  );
+};
 export default LoginMember;

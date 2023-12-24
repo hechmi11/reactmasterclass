@@ -1,9 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const { getToken } = require("../controllers/tokenController");
+const { getTokens } = require("../controllers/tokenController");
 
-router.get("/", (req, res) => {
-  res.json({ msg: "token route" });
-});
+router.get("/", getTokens);
 
 module.exports = router;

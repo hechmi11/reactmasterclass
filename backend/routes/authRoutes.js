@@ -2,13 +2,9 @@ const express = require("express");
 const router = express.Router();
 const { register, login, logout } = require("../controllers/authController");
 
-router.get("/", register);
+router.post("/register", register);
 
-// @[/api/auth/login , public,connextion method]
-
-router.get("/login", login);
-
-// @[/api/auth/register , private,signout method]
+router.post("/login", login);
 
 router.get("/logout", logout);
 

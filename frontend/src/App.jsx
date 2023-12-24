@@ -17,7 +17,7 @@ import LoginMember from "./pages/member/auth/LoginMember"; // public
 import ProfileMember from "./pages/member/profile/Profile";
 
 // zone accueil home public
-import Home from "./pages/home/Home";
+import Home from "./pages/public/Home";
 
 function App() {
   return (

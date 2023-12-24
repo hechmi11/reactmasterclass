@@ -4,10 +4,9 @@ const tokenSchema = mongoose.Schema(
   {
     key: {
       type: String,
-      required: [true, "veuillez inserer le champs role"],
+      required: [true, "Veuillez inserer un token"],
     },
   },
-
   {
     timestamps: true,
   }

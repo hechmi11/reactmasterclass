@@ -1,21 +1,19 @@
 const mongoose = require("mongoose");
-
 const userSchema = mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, "Veuiller inserer le champ Nom"],
+      required: [true, "Veuillez inserer le champ nom"],
     },
     email: {
       type: String,
-      required: [true, "Veuiller inserer le champ E-mail"],
+      required: [true, "Veuillez inserer le champ email"],
       unique: true,
       lowercase: true,
     },
     password: {
       type: String,
-      required: [true, "Veuiller inserer le champ mot de passe"],
-      select: false,
+      required: [true, "Veuillez inserer le champ mot de passe"],
     },
     role: [
       {
@@ -23,7 +21,7 @@ const userSchema = mongoose.Schema(
         ref: "Role",
       },
     ],
-    Token: {
+    token: {
       type: mongoose.Types.ObjectId,
       ref: "Token",
     },
@@ -32,4 +30,5 @@ const userSchema = mongoose.Schema(
     timestamps: true,
   }
 );
+
 module.exports = mongoose.model("User", userSchema);
