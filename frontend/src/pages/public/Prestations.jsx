@@ -9,7 +9,7 @@ import hyundai from "../../assets/img/services/hyundai-i10-bva.png";
 
 const Prestations = () => {
   const PrestationS = styled.div`
-    padding: 15px;
+    padding: 13px;
     background-color: white;
     .filtres {
       padding: 15px;
@@ -40,7 +40,7 @@ const Prestations = () => {
       }
     }
   `;
-
+  // les filtres
   const marques = [
     {
       id: 1,
@@ -55,7 +55,22 @@ const Prestations = () => {
     {
       id: 3,
       value: "3",
-      label: "Volksvagen",
+      label: "Volkswagen",
+    },
+    {
+      id: 4,
+      value: "4",
+      label: "Skoda",
+    },
+    {
+      id: 5,
+      value: "5",
+      label: "Dacia",
+    },
+    {
+      id: 6,
+      value: "6",
+      label: "Hyundai",
     },
   ];
   const modeles = [
@@ -75,25 +90,61 @@ const Prestations = () => {
       id: 3,
       marque_id: 2,
       value: "3",
-      label: "Landcruiser",
+      label: "Land Cruiser",
     },
     {
       id: 4,
       marque_id: 2,
-      value: "3",
+      value: "4",
       label: "Yaris",
     },
     {
       id: 5,
       marque_id: 3,
-      value: "3",
-      label: "Golf8",
+      value: "5",
+      label: "Golf 8",
     },
     {
       id: 6,
       marque_id: 3,
-      value: "3",
-      label: "Passat cc",
+      value: "6",
+      label: "Passat",
+    },
+    {
+      id: 7,
+      marque_id: 4,
+      value: "7",
+      label: "Octavia",
+    },
+    {
+      id: 8,
+      marque_id: 4,
+      value: "8",
+      label: "Fabia",
+    },
+    {
+      id: 9,
+      marque_id: 5,
+      value: "9",
+      label: "Logan MCV",
+    },
+    {
+      id: 10,
+      marque_id: 5,
+      value: "10",
+      label: "Duster",
+    },
+    {
+      id: 11,
+      marque_id: 6,
+      value: "11",
+      label: "G-i10",
+    },
+    {
+      id: 12,
+      marque_id: 6,
+      value: "12",
+      label: "Elentra",
     },
   ];
   const energies = [
@@ -127,10 +178,9 @@ const Prestations = () => {
     {
       id: 3,
       value: "3",
-      label: "Noir",
+      label: "Noire",
     },
   ];
-
   const puissances = [
     {
       id: 1,
@@ -169,7 +219,7 @@ const Prestations = () => {
     {
       id: 2,
       value: "2",
-      label: "8 sieges",
+      label: "7 sieges",
     },
     {
       id: 3,
@@ -195,30 +245,31 @@ const Prestations = () => {
     },
   ];
 
+  //services
   const services = [
     {
       id: "1",
       image: fabia,
-      price: "Prix à partir de 23 € jour",
+      price: "Prix à partir de 29€jour",
       details: "SKODA FABIA",
     },
     {
       id: "2",
       image: skoda,
-      price: "Prix à partir de 23 € jour",
-      details: "SKODA FABIA",
+      price: "Prix à partir de 50€/jour",
+      details: "SKODA OCTAVIA",
     },
     {
       id: "3",
       image: dacia,
-      price: "Prix à partir de 23 € jour",
-      details: "SKODA FABIA",
+      price: "Prix à partir de 39€/jour",
+      details: "DACIA LOGAN MCV",
     },
     {
       id: "4",
       image: hyundai,
-      price: "Prix à partir de 23 € jour",
-      details: "SKODA FABIA",
+      price: "Prix à partir de 23€/jour",
+      details: "HYUNDAI G-i10",
     },
   ];
 

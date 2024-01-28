@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Flex, Form, Input } from "antd";
-import { login, setUserConnected } from "../../../featuers/auth/authSlice";
+// import { login, setUserConnected } from "../../../featuers/auth/authSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 const LoginPageStyle = {
@@ -25,29 +25,29 @@ const LoginMember = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = (values) => {
-    setLoading(true);
-    dispatch(login(values))
-      .then((res) => {
-        const { id: _id, name, email, token } = res.payload.user;
-        const { message } = res.payload;
-        console.log(message);
-        console.log(token);
-        localStorage.setItem("token", token);
-        localStorage.setItem("user", JSON.stringify(res.payload.user));
-        setLoading(false);
-        dispatch(setUserConnected(res.payload.user));
-        navigate("/dashboard-member");
-      })
-      .catch((err) => {
-        console.log(err);
-        setLoading(false);
-      });
-  };
+  // const handleLogin = (values) => {
+  //   setLoading(true);
+  //   dispatch(login(values))
+  //     .then((res) => {
+  //       const { id: _id, name, email, token } = res.payload.user;
+  //       const { message } = res.payload;
+  //       console.log(message);
+  //       console.log(token);
+  //       localStorage.setItem("token", token);
+  //       localStorage.setItem("user", JSON.stringify(res.payload.user));
+  //       setLoading(false);
+  //       dispatch(setUserConnected(res.payload.user));
+  //       navigate("/dashboard-member");
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //       setLoading(false);
+  //     });
+  // };
 
   const onFinish = (values) => {
     console.log("Success:", values);
-    handleLogin(values);
+    // handleLogin(values);
   };
 
   return (

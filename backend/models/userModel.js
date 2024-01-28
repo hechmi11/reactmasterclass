@@ -15,6 +15,9 @@ const userSchema = mongoose.Schema(
       type: String,
       required: [true, "Veuillez inserer le champ mot de passe"],
     },
+    photo: {
+      type: String,
+    },
     role: [
       {
         type: mongoose.Types.ObjectId,

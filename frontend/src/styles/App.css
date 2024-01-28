@@ -6,3 +6,11 @@
 body {
   background-color: white;
 }
+.edit_button {
+  background-color: orange !important;
+  color: white !important;
+}
+.edit_button:hover {
+  background-color: rgb(246, 176, 45) !important;
+  border-color: white !important;
+}

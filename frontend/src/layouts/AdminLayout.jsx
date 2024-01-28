@@ -8,6 +8,7 @@ import {
   UserSwitchOutlined,
   BarcodeOutlined,
   BarChartOutlined,
+  AppstoreAddOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
 
@@ -27,18 +28,23 @@ const AdminLayout = () => {
   const items = [
     {
       key: "1",
-      icon: <BarcodeOutlined />,
-      label: <Link to="/dashboard"> Products </Link>,
+      icon: <BarChartOutlined />,
+      label: <Link to="/dashboard-admin"> Statistiques </Link>,
     },
     {
       key: "2",
-      icon: <BarChartOutlined />,
-      label: <Link to="statistiques"> Statistiques </Link>,
+      icon: <BarcodeOutlined />,
+      label: <Link to="autos"> Gérer Parc Auto </Link>,
     },
     {
       key: "3",
       icon: <UserSwitchOutlined />,
-      label: "Manage users",
+      label: <Link to="users"> Gérer utilisateurs</Link>,
+    },
+    {
+      key: "4",
+      icon: <AppstoreAddOutlined />,
+      label: <Link to="assurance"> Gérer Assurances</Link>,
     },
   ];
 

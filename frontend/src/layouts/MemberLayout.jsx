@@ -13,7 +13,7 @@ import {
 } from "@ant-design/icons";
 import { Layout, Menu, Button, theme, Tooltip } from "antd";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { logout, setUserDisconnected } from "../featuers/auth/authSlice";
+// import { logout, setUserDisconnected } from "../featuers/auth/authSlice";
 import { useDispatch } from "react-redux";
 const { Header, Sider, Content } = Layout;
 
@@ -47,21 +47,21 @@ const MemberLayout = () => {
       label: "Manage users",
     },
   ];
-  const handleLogout = () => {
-    const email = "karim@rent-car.net";
-    dispatch(logout(email))
-      .then((res) => {
-        const { msg } = res.payload;
-        console.log(msg);
-        localStorage.removeItem("token");
-        localStorage.removeItem("user");
-        dispatch(setUserDisconnected());
-        navigate("/login-member");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  // const handleLogout = () => {
+  //   const email = "karim@rent-car.net";
+  //   dispatch(logout(email))
+  //     .then((res) => {
+  //       const { msg } = res.payload;
+  //       console.log(msg);
+  //       localStorage.removeItem("token");
+  //       localStorage.removeItem("user");
+  //       dispatch(setUserDisconnected());
+  //       navigate("/login-member");
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
   return (
     <Layout style={{ height: "100vh", padding: "0 0px" }}>
       <Sider
@@ -129,7 +129,7 @@ const MemberLayout = () => {
                   width: 64,
                   height: 64,
                 }}
-                onClick={() => handleLogout()}
+                // onClick={() => handleLogout()}
               />
             </div>
           </div>

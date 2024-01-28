@@ -17,6 +17,6 @@ app.use("/api/users", require("./routes/userRoutes"));
 app.use("/api/autos", require("./routes/autoRoutes"));
 app.use("/api/tokens", require("./routes/tokenRoutes"));
 app.use("/api/roles", require("./routes/roleRoutes"));
-
+app.use("/api/assurances", require("./routes/assuranceRoutes"));
 app.use(compression());
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

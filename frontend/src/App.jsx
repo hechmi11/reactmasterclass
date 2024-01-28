@@ -9,8 +9,12 @@ import HomeLayout from "./layouts/HomeLayout";
 
 // zone admin prive
 import LoginAdmin from "./pages/admin/auth/LoginAdmin"; // public
-import Products from "./pages/admin/products/Products";
+import Auto from "./pages/admin/auto/Auto";
 import Statistiques from "./pages/admin/statistiques/Statistiques";
+import Users from "./pages/admin/users/Users";
+import ManageAssurance from "./pages/admin/assurance/ManageAssurance";
+import CreateAssurance from "./pages/admin/assurance/CreateAssurance";
+import EditAssurance from "./pages/admin/assurance/EditAssurance";
 
 // zone member prive
 import LoginMember from "./pages/member/auth/LoginMember"; // public
@@ -22,6 +26,7 @@ import Home from "./pages/public/Home";
 import Prestations from "./pages/public/Prestations";
 import Services from "./pages/public/Services";
 import Apropos from "./pages/public/Apropos";
+import Location from "./pages/public/Location";
 // espace client
 import ContactUs from "./pages/public/ContactUs";
 
@@ -35,6 +40,7 @@ function App() {
           <Route path="services" element={<Services />} />
           <Route path="apropos" element={<Apropos />} />
           <Route path="contact-us" element={<ContactUs />} />
+          <Route path="location" element={<Location />} />
         </Route>
 
         <Route path="/login-member" element={<LoginMember />} />
@@ -46,8 +52,10 @@ function App() {
         </Route>
 
         <Route path="/dashboard-admin" element={<AdminLayout />}>
-          <Route index element={<Products />} />
-          <Route path="statistiques" element={<Statistiques />} />
+          <Route index element={<Statistiques />} />
+          <Route path="autos" element={<Auto />} />
+          <Route path="users" element={<Users />} />
+          <Route path="assurance" element={<ManageAssurance />} />
         </Route>
       </Routes>
     </Router>

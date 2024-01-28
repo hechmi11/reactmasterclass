@@ -4,7 +4,7 @@ import { MenuFoldOutlined } from "@ant-design/icons";
 import logo from "../assets/img/logo2.jpg";
 import { styled } from "styled-components";
 import { Button, Dropdown } from "antd";
-import { logout } from "../featuers/auth/authSlice";
+// import { logout } from "../featuers/auth/authSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -64,17 +64,17 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
-  const handleLogout = () => {
-    const email = "karim@rent-car.net";
-    dispatch(logout(email))
-      .then((res) => {
-        console.log(res);
-        //  navigate('/login-member')
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  // const handleLogout = () => {
+  //   const email = "karim@rent-car.net";
+  //   dispatch(logout(email))
+  //     .then((res) => {
+  //       console.log(res);
+  //       //  navigate('/login-member')
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
   const items = [
     {
       key: "1",

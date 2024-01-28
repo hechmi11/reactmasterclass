@@ -100,11 +100,23 @@ const Home = () => {
     },
     {
       value: "2",
-      label: "Djerba",
+      label: "Nabeul",
     },
     {
       value: "3",
-      label: "Nabeul",
+      label: "Sousse",
+    },
+    {
+      value: "4",
+      label: "Sfax",
+    },
+    {
+      value: "5",
+      label: "Gabes",
+    },
+    {
+      value: "6",
+      label: "Djerba",
     },
   ];
   const autresServices = [
@@ -134,26 +146,26 @@ const Home = () => {
     {
       id: "1",
       image: fabia,
-      price: "Prix à partir de 23 € jour",
+      price: "Prix à partir de 29 €/jour",
       details: "SKODA FABIA",
     },
     {
       id: "2",
       image: skoda,
-      price: "Prix à partir de 23 € jour",
-      details: "SKODA FABIA",
+      price: "Prix à partir de 50 €/jour",
+      details: "SKODA OCTAVIA",
     },
     {
       id: "3",
       image: dacia,
-      price: "Prix à partir de 23 € jour",
-      details: "SKODA FABIA",
+      price: "Prix à partir de 39 €/jour",
+      details: "DACIA LOGAN MCV",
     },
     {
       id: "4",
       image: hyundai,
-      price: "Prix à partir de 23 € jour",
-      details: "SKODA FABIA",
+      price: "Prix à partir de 23 €/jour",
+      details: "HYUNDAI G-i10",
     },
   ];
   const onFinish = (values) => {
@@ -177,7 +189,6 @@ const Home = () => {
             onFinish={onFinish}
           >
             <h3>Formulaire de location</h3>
-
             <Form.Item
               label="Agence de prise en charge"
               name="agencePriseEnCharge"
@@ -194,7 +205,6 @@ const Home = () => {
                 placeholder="Choisir l'agence de prise en charge"
               />
             </Form.Item>
-
             <Form.Item
               label="Agence de restitution"
               name="agenceRestitution"
@@ -210,8 +220,8 @@ const Home = () => {
                 options={agences}
                 placeholder="Choisir l'agence  de restitution"
               />
-            </Form.Item>
-
+            </Form.Item>{" "}
+            le travaille s éffectue ici
             <Form.Item
               label="Date de retrait"
               name="dateRetrait"
@@ -231,7 +241,6 @@ const Home = () => {
                 placeholder="Choisir la date de retrait"
               />
             </Form.Item>
-
             <Form.Item
               label="Date de retour"
               name="dateRetour"
@@ -251,7 +260,6 @@ const Home = () => {
                 placeholder="Choisir la date de retour"
               />
             </Form.Item>
-
             <Form.Item style={{ textAlign: "right" }}>
               <Button type="primary" htmlType="submit">
                 Valider
